@@ -1,0 +1,20 @@
+public static int[] merge(int[] arrOne, int[] arrTwo){
+
+        int N = arrOne.length+arrTwo.length;
+        int[] merged = new int[N];
+        int fP=0;
+        int sP=0;
+        for (int k=0; k<N; k++){
+            if (fP>arrOne.length-1){
+                merged[k]=arrTwo[sP++];
+            } else if (sP > arrTwo.length - 1) {
+                merged[k]=arrOne[fP++];
+            } else if (arrTwo[sP] < arrOne[fP]) {
+                merged[k]=arrTwo[sP++];
+            } else {
+                merged[k]=arrOne[fP++];
+            }
+        }
+        return merged;
+
+    }
